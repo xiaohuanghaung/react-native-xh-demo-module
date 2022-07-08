@@ -3,11 +3,13 @@ import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import XhDemoModule from 'react-native-xh-demo-module';
 
+import { NativeModules } from 'react-native';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
+    console.log('XhDemoModule === ', NativeModules.XhDemoModule);
     XhDemoModule.multiply(3, 7).then(setResult);
   }, []);
 
